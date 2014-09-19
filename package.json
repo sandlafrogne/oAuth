@@ -1,0 +1,20 @@
+//TODO : changer le nom de l'appli'
+{
+  "name": "nodejsbasic",
+  "version": "1.0.0",
+  "description": "Structure vierge de projet node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.0.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "author": "Sandrine Lafrogne",
+  "contributors": [
+  ],
+  "license": "MIT"
+}

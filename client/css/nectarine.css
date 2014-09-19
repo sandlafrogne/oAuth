@@ -1,0 +1,128 @@
+/*header*/
+.navbar-brand {
+	height:auto;
+}
+
+#dropdownMenu1{
+	margin-top: 3px;
+}
+
+.menu-mobile a{
+	color:#fff;	
+}
+
+.menu-search{
+	margin:3px 5px;
+}
+
+.menu-search .form-group{
+	position:relative;
+}
+
+.menu-search input{
+	padding-right:20px;
+}
+
+.btn-back{
+	margin:3px;
+}
+
+.glyphicon-remove {
+  position:absolute;
+  top:10px;
+  right:10px;
+}
+
+@media (min-width: 992px){
+	.menu-search{
+		float:right;
+	}	
+}
+
+.btn-search{
+	background:#ddd;
+	height:34px;
+}
+
+.navbar-header button{
+	margin-top:3px;
+}
+
+/*home*/
+.main-container{
+	padding:0 10px;
+}
+
+.col-xs-4{
+	padding:5px;
+}
+
+.row{
+	margin:0;
+}
+
+.badge{
+	text-overflow:ellipsis;
+	overflow:hidden;
+	max-width:80px;
+	white-space:nowrap;
+	font-size:9px;
+}
+
+.img-rounded{
+	margin-right:5px;
+}
+
+a{
+	cursor:pointer;
+}
+
+@media (min-width: 992px){
+	.col-md-2{
+		padding:15px;
+	}
+
+	.badge{
+		font-size:11px;
+		max-width:none;
+	}
+}
+
+/*app details*/
+.img-app-details{
+	width:50px;
+	height:50px;
+}
+
+.app-details{
+	margin-top:10px;
+}
+
+h3{
+	margin-top:0;
+}
+
+.thumbnail p{
+	margin-top:5px;
+}
+
+@media (min-width: 992px){
+	.img-app-details{
+		width:200px;
+		height:200px;
+	}
+
+	.app-details{
+		margin-left:20px;
+		max-width:60%;
+		margin-top:0px;
+	}
+}
+
+.app-property{
+	margin-left:5px;
+}
+
+.app-version{
+	color:#f16e00;
+}
