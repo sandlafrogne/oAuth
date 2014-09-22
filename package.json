@@ -1,7 +1,7 @@
 {
   "name": "nodejsbasic",
   "version": "1.0.0",
-  "description": "Structure vierge de projet node",
+  "description": "Structure vierge de projet node, test",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
