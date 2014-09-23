@@ -1,5 +1,5 @@
 //TODO : changer le nom du module, même valeur que dans index.html
-angular.module('plunker', ['ngRoute', 'controllers', 'services', 'directives', 'filters', 'pascalprecht.translate'])
+angular.module('plunker', ['ngRoute', 'controllers', 'services', 'directives', 'filters', 'pascalprecht.translate','ngAnimate'])
     .config(function ($routeProvider,$httpProvider) {
         $routeProvider.when('/', {templateUrl: 'albums.html'})
             .when('/pane', {templateUrl: 'pane.html'})

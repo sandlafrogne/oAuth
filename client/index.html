@@ -6,7 +6,8 @@
     <script>document.write('<base href="' + document.location + '" />');</script>
     <link rel="stylesheet" href="css/nectarine.css">
     <link rel="stylesheet" href="css/orange.css">
-    <link rel="stylesheet" href="css/albums.css">
+      <link rel="stylesheet" href="css/slide.css">
+
 </head>
 
 <!--TODO : changer nom de l'appli-->
@@ -143,16 +144,14 @@
         <div ng-controller="MainCtrl">
             <div class="col-lg-offset-1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h2>Do you like Thomas Fersen ?</h2>
+<!--
 
                 <div>
-                    <!--<img src="img/node.svg" alt="thomas fersen album">-->
-                </div>
-                <div>
                     <button ng-click="add()">Try his last album !</button>
-                </div>
+                </div>-->
                 <div class="row" ng-show="view">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <img class="img-responsive" src={{cover}}>
+                        <img class="img-responsive" src={{cover}}?size=medium>
                         <ul>
                             <div ng-repeat="track in tracks">
                                 <li><a class="link_track" ng-click="play_track($index)">{{track.title}}</a></li>
@@ -204,30 +203,41 @@
     </div>
     <h2>Do you like Thomas Fersen ?</h2>
     <div ng-controller="albumsController">
-       <!-- <div ng-repeat="album in albums | orderBy:'id':true">
-            {{album.title}}
-            {{album.cover}}
-        </div>-->
-        <div class="container slider">
-            <!-- enumerate all photos -->
-            <div ng-repeat="album in albums | orderBy:'id':true">
-               <a href="/#/album/{{album.id}}">
-                <img class="slide"
-                     ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)"
-                     ng-src="{{album.cover}}?size=big"/>
-                </a>
+
+        <div class="container slideSlider">
+            <div ng-repeat="album in albums">
+            <a href="/#/album/{{album.id}}">
+                <img class="slideSlide" ng-hide="!isCurrentSlideIndex($index)"  ng-src="{{album.cover}}?size=big">
+            </a>
             </div>
-            <!-- prev / next controls -->
-            <a class="arrow prev" href="#/albums" ng-click="showPrev()"></a>
-            <a class="arrow next" href="#/albums" ng-click="showNext()"></a>
-            <!-- extra navigation controls -->
-            <ul class="nav">
-                <li ng-repeat="album in albums | orderBy:'id':true" ng-class="{'active':isActive($index)}">
-                    <img src="{{album.cover}}" alt="{{album.title}}" title="{{album.title}}"
-                         ng-click="showPhoto($index);"/>
-                </li>
-            </ul>
         </div>
+        <a class="slideArrow prev"  ng-click="nextSlide()"></a>
+        <a class="slideArrow next"  ng-click="prevSlide()"></a>
+
+        <nav class="slideNav">
+            <div class="wrapper">
+                <ul class="slideNav">
+                   <li  ng-repeat="album in albums" ng-class="{'active':isCurrentSlideIndex($index)}">
+                        <!--<a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                           ng-click="setCurrentSlideIndex($index);">{{album.cover}}</a>-->
+                    <img src="{{album.cover}}"  alt="{{album.title}}" title="{{album.title}}"
+                         ng-click="showPhoto($index);"/>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+      <!--  <a class="arrow prev" href="#/albums" ng-click="showPrev()"></a>
+        <a class="arrow next" href="#/albums" ng-click="showNext()"></a>
+        &lt;!&ndash; extra navigation controls &ndash;&gt;
+        <ul class="nav">
+            <li ng-repeat="album in albums | orderBy:'id':true" ng-class="{'active':isActive($index)}">
+                <img src="{{album.cover}}" alt="{{album.title}}" title="{{album.title}}"
+                     ng-click="showPhoto($index);"/>
+            </li>
+        </ul>-->
+
+
     </div>
 </script>
 
@@ -237,19 +247,26 @@
 </div>
 
 
+<!--jquery et bootstrap sont necessaires pour le dropdown menu. et il faut laisser l'import dans ce sens-->
+<script src="vendors/jquery-1.11.0.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
 <!--Pour la présentation des albums en photos-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-touch.min.js"></script>
 
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.2/TweenMax.min.js"></script>
+
 <!--api deezer-->
 <script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
 <!--multilangue, pascalprecht-->
 <script src="vendors/angular-translate.min.js"></script>
-<!--jquery et bootstrap sont necessaires pour le dropdown menu. et il faut laisser l'import dans ce sens-->
-<script src="vendors/jquery-1.11.0.min.js"></script>
-<script src="vendors/bootstrap.js"></script>
+
+
+
 <!--imports locaux du projet-->
 <script src="js/app.js"></script>
 <script src="js/controllers/mainCtrl.js"></script>
@@ -258,5 +275,7 @@
 <script src="js/filters/ExampleFilter.js"></script>
 <script src="js/services/sharedProperties.js"></script>
 <script src="js/services/apiServices.js"></script>
+
+
 </body>
 </html>
