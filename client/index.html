@@ -144,10 +144,8 @@
         <div ng-controller="MainCtrl">
             <div class="col-lg-offset-1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h2>Do you like Thomas Fersen ?</h2>
-<!--
-
-                <div>
-                    <button ng-click="add()">Try his last album !</button>
+                <!--          <div>
+                    <button ng-click="play_track(3)">Try his last album !</button>
                 </div>-->
                 <div class="row" ng-show="view">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -155,7 +153,6 @@
                         <ul>
                             <div ng-repeat="track in tracks">
                                 <li><a class="link_track" ng-click="play_track($index)">{{track.title}}</a></li>
-                                <!--<td style="text-align:right;"><a href="#/artist/{{track.artist.id}}">{{track.artist.name}}</a></td>-->
                             </div>
                         </ul>
                     </div>
@@ -171,6 +168,25 @@
                             </table>
                         </div>
                     </div>
+
+                    <div class="container slider">
+                        <img ng-repeat="slide in slides" class="slide slide-animation2"
+                             ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+
+                        <a class="arrow prev" ng-click="nextSlide()"></a>
+                        <a class="arrow next" ng-click="prevSlide()"></a>
+                        <nav class="nav">
+                            <div class="wrapper">
+                                <ul class="dots">
+                                    <li class="dot" ng-repeat="slide in slides">
+                                        <a  ng-class="{'active':isCurrentSlideIndex($index)}"
+                                           ng-click="setCurrentSlideIndex($index);">{{slide.image}}</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -205,9 +221,11 @@
     <div ng-controller="albumsController">
 
         <div class="container slideSlider">
-            <div ng-repeat="album in albums">
+            <div ng-repeat="album in albums" class="slide" >
             <a href="/#/album/{{album.id}}">
-                <img class="slideSlide" ng-hide="!isCurrentSlideIndex($index)"  ng-src="{{album.cover}}?size=big">
+              <!--  <div class="container slideSlider">-->
+                <img class="slideSlide slide-animation2" ng-hide="!isCurrentSlideIndex($index)"  ng-src="{{album.cover}}?size=big">
+           <!-- </div>-->
             </a>
             </div>
         </div>
@@ -226,18 +244,6 @@
                 </ul>
             </div>
         </nav>
-
-      <!--  <a class="arrow prev" href="#/albums" ng-click="showPrev()"></a>
-        <a class="arrow next" href="#/albums" ng-click="showNext()"></a>
-        &lt;!&ndash; extra navigation controls &ndash;&gt;
-        <ul class="nav">
-            <li ng-repeat="album in albums | orderBy:'id':true" ng-class="{'active':isActive($index)}">
-                <img src="{{album.cover}}" alt="{{album.title}}" title="{{album.title}}"
-                     ng-click="showPhoto($index);"/>
-            </li>
-        </ul>-->
-
-
     </div>
 </script>
 
@@ -256,15 +262,12 @@
 <!--Pour la présentation des albums en photos-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-touch.min.js"></script>
-
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.2/TweenMax.min.js"></script>
-
+<!--slides-->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 <!--api deezer-->
 <script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
 <!--multilangue, pascalprecht-->
 <script src="vendors/angular-translate.min.js"></script>
-
 
 
 <!--imports locaux du projet-->

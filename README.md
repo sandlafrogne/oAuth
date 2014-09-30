@@ -38,6 +38,7 @@ Your app should now be running on [localhost:5000](http://localhost:5000/).
 	* Utilisation : dans le code html insérer : **{{'nameKey' | translate}}**
 * Interceptor : dans app.js, permet de rajouter un nom de serveur devant l'url relative afin de faire des appels API en relatif dans services et de compléter le nom du serveur distant à un seul endroit. 
 * appel html d'une page : localhost:5000/#/keyword
+* les animations des albums sont faites avec GreenSock. Il y a une partie .animation après le contrôleur.
 
 ## Documentation 
 * [Angular](https://docs.angularjs.org/guide/)
@@ -46,5 +47,5 @@ Your app should now be running on [localhost:5000](http://localhost:5000/).
 * [Plunker, environnement de test](http://plnkr.co/)
 * [JsFiddle, environnement de test](http://jsfiddle.net/)
 * [Deezer API](http://developers.deezer.com/api/)
-
+* [GreenSock, animation graphique des pochettes](http://greensock.com/get-started-js)
 
